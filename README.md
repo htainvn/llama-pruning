@@ -1,4 +1,4 @@
-# Llama-Pruning
+# Llama-Pruning [MEDIC]
 
 ![Llama-pruning-image](/assets/llama-pruning.jpg "Llama pruning")
 
