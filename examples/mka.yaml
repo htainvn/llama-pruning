@@ -1,0 +1,20 @@
+model_name: "meditsolutions/Llama-3.2-SUN-1B-chat"
+prune_percent: 0.2
+dtype: "float32"
+cache_dir: null
+device: "cuda"
+output: "results/pruned_model"
+apply_chat_template: true
+prompt: "What is the capital of France?"
+max_new_tokens: 50
+target_size: null
+log_dir: "logs"
+test_only: false
+prune_method: "mka"
+use_normalized_weights: false
+use_layer_norm_tweaks: true
+layer_norm_scale: 2.0
+gate_up_weight_weights: [0.3, 0.7]
+print_summary: false
+quiet: false
+stop_logging: false
