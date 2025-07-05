@@ -231,6 +231,7 @@ if __name__ == "__main__":
     # Load the model and tokenizer.
     model, tokenizer = load_model(
         model_name=config.model_name,
+        hf_token=os.getenv("HF_TOKEN", ""),
         dtype=dtype,
         cache_dir=config.cache_dir,
         device=config.device,
