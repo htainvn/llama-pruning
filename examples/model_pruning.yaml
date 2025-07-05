@@ -1,0 +1,21 @@
+model_name: "Couplet/phi-4-16bit-250703"
+prune_percent: 0.6
+dtype: "bfloat16"
+cache_dir: null
+device: "cpu"
+output: "results/pruned_model"
+apply_chat_template: true
+prompt: |
+  [translation/couplet] What is the translation of the following Classical Chinese text into Modern Vietnamese?
+  - Chinese Text: {text}
+max_new_tokens: 2048
+log_dir: "logs"
+test_only: false
+prune_method: "mk_prune"
+use_normalized_weights: false
+use_layer_norm_tweaks: false
+layer_norm_scale: 2.0
+gate_up_weight_weights: [0.3, 0.7]
+print_summary: false
+quiet: false
+stop_logging: false
