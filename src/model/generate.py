@@ -124,12 +124,12 @@ For [translation/*] modes, follow these key translation principles unless otherw
         max_new_tokens=max_new_tokens,
         num_return_sequences=1,
         pad_token_id=tokenizer.pad_token_id,
-        temperature=None,
-        top_p=None,
+        temperature=1.5,
+        min_p=0.1,
         use_cache=True,
         streamer=streamer if quiet is False else None,
         eos_token_id=tokenizer.eos_token_id,
-        do_sample=False,
+        do_sample=True,
         no_repeat_ngram_size=None,
     )
 
