@@ -21,6 +21,7 @@ def load_model(model_name: str, device: str = 'cuda', dtype: Optional[Union[str,
     """
     #Load the model and tokenizer.
     model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype, cache_dir=cache_dir, device_map=device, token = os.getenv("HF_TOKEN"))
-    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True, token = os.getenv("HF_TOKEN"))
+
 
     return model, tokenizer
