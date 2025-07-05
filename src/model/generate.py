@@ -125,7 +125,7 @@ For [translation/*] modes, follow these key translation principles unless otherw
         num_return_sequences=1,
         pad_token_id=tokenizer.pad_token_id,
         temperature=1.5,
-        min_p=0.1,
+        min_p=0.8,
         use_cache=True,
         streamer=streamer if quiet is False else None,
         eos_token_id=tokenizer.eos_token_id,

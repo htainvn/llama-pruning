@@ -1,5 +1,5 @@
 model_name: "Couplet/phi-4-16bit-250703"
-prune_percent: 0.6
+prune_percent: 0.5
 dtype: "bfloat16"
 cache_dir: null
 device: "cpu"
@@ -7,11 +7,11 @@ output: "results/pruned_model"
 apply_chat_template: true
 prompt: |
   [translation/couplet] What is the translation of the following Classical Chinese text into Modern Vietnamese?
-  - Chinese Text: {text}
+  - Chinese Text: 於斯聚於斯歌社會百年條約在 \n 于是言于是語鄉評千古品題新
 max_new_tokens: 2048
 log_dir: "logs"
 test_only: false
-prune_method: "mk_prune"
+prune_method: "mka"
 use_normalized_weights: false
 use_layer_norm_tweaks: false
 layer_norm_scale: 2.0
