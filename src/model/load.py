@@ -23,5 +23,6 @@ def load_model(model_name: str, device: str = 'cuda', dtype: Optional[Union[str,
     model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=dtype, cache_dir=cache_dir, device_map=device, token = os.getenv("HF_TOKEN"))
     tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True, token = os.getenv("HF_TOKEN"))
 
+    tokenizer.chat_template = "{% for message in messages %}{% if (message['role'] == 'system') %}{{'<|im_start|>system<|im_sep|>' + message['content'] + '<|im_end|>'}}{% elif (message['role'] == 'user') %}{{'<|im_start|>user<|im_sep|>' + message['content'] + '<|im_end|>'}}{% elif (message['role'] == 'assistant') %}{{'<|im_start|>assistant<|im_sep|>' + message['content'] + '<|im_end|>'}}{% endif %}{% endfor %}{% if add_generation_prompt %}{{ '<|im_start|>assistant<|im_sep|>' }}{% endif %}"
 
     return model, tokenizer
